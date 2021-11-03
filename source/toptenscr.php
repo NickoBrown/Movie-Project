@@ -23,7 +23,7 @@ $result = $conn->query("SELECT `Title`, `Score` FROM `Movies_DVDs` WHERE `Score`
 
 // Image dimensions
 $imageWidth = 1800;
-$imageHeight = 900;
+$imageHeight = 1300;
 
 // Grid dimensions and placement within image
 $gridTop = 40;
@@ -38,8 +38,8 @@ $lineWidth = 1;
 $barWidth = 120;
 
 // Font settings
-$font = '/var/www/30032159//Project/OpenSans-Regular.ttf';
-$fontSize = 10;
+$font = '/var/www/MOVIE_PROJECT/OpenSans-Regular.ttf';
+$fontSize = 15;
 
 // Margin between label and axis
 $labelMargin = 8;
@@ -116,10 +116,10 @@ foreach($data as $key => $value) {
     $labelBox = imagettfbbox($fontSize, 0, $font, $key);
     $labelWidth = $labelBox[4] - $labelBox[0];
 
-    $labelX = $itemX - $labelWidth / 2;
-    $labelY = $gridBottom + $labelMargin + $fontSize;
+    $labelX = $itemX;
+    $labelY = $gridBottom + $labelMargin + $labelWidth;
 
-    imagettftext($chart, $fontSize, 0, $labelX, $labelY, $labelColor, $font, $key);
+    imagettftext($chart, $fontSize, 90, $labelX, $labelY, $labelColor, $font, $key);
 
     $itemX += $barSpacing;
 }
