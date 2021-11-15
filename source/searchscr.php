@@ -5,40 +5,62 @@ Movie Rad
 -->
 
 <html lang="en">
-<head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<title>Movie Search Page</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Movie Search Page</title>
 </head>
 
-<nav>
-        <h2>
-        <a href="topten.php">Top 10</a>        
-        <a href="index.php">Movie Search</a>
-                
-        </h2>
-</nav>
+
 
 <body>
 
-        <header>
-                <h1>Movie List</h1>
-        </header>
+<nav class="navbar navbar-expand-sm bg-light">
+            <a href="index.php" class="navbar-brand">
+                <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-link">
+                    <a href="topten.php">Top 10</a>
+                </li>
+                <li class="nav-link">
+                    <a href="searchmovie.php">Movie Search</a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="membership.php">Membership Page</a>
+                </li>
+                <li class="nav-link">
+                    <a href="adminlogin.php">Admin</a>
+                </li>
+            </ul>
+        </nav>
 
 
-		<table class="table">
-        	<thead>
-            	<tr>
-                	<th scope ="col">Title</th>
-                	<th scope ="col">Genre</th>
-                	<th scope ="col">Rating</th>
-                	<th scope ="col">Release Year</th>
-            	</tr>
+
+    <header>
+        <div class="text-center pt-3">
+            <h1>Movie List</h1>
+        </div>
+    </header>
+
+    <div class="px-5 pt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Release Year</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Submit</th>
+                </tr>
             </thead>
-        
-			<tbody>
+
+            <tbody>
                 <?php
                 $title = $_POST["textsearchterm"];
                 $genre = $_POST["genres"];
@@ -50,38 +72,51 @@ Movie Rad
                 require("connect.php");
 
 
-                if($yearoperator == "Higher_than"){
-                        $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` > $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                if ($yearoperator == "Higher_than") {
+                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` > $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
-                if($yearoperator == "Lower_than"){
-                        $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` < $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                if ($yearoperator == "Lower_than") {
+                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` < $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
-                if($yearoperator == "At_year"){
-                        $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` = $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                if ($yearoperator == "At_year") {
+                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` = $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
-                
-	
+
+
 
                 for ($i = 0; true; $i++) {
-                		echo "<tr>";
-                
-                        echo "<td>".$results[$i]['Title'] ."</td>";
-                
-                		echo "<td>". $results[$i]['Genre'] ."</td>";
-                
-                		echo "<td>". $results[$i]['Rating'] ."</td>";
-                
-                		echo "<td>". $results[$i]['ReleaseYear'] ."</td>";
-                
-                        $id = $results[$i]['id'];
-                        
-                        echo "</tr>";
+                    echo "<tr>";
 
-                        if ($results[$i + 1] == null) {
-                                break;
-                        }
+                    echo "<td>" . $results[$i]['Title'] . "</td>";
+
+                    echo "<td>" . $results[$i]['Genre'] . "</td>";
+
+                    echo "<td>" . $results[$i]['Rating'] . "</td>";
+
+                    echo "<td>" . $results[$i]['ReleaseYear'] . "</td>";
+
+                    echo "<td> <form action=\"index.php\" method=\"POST\">
+                        	 <select name=\"score\" id=\"score\">  
+  							 <option value=\"select\">Select</option> 
+  							 <option value=\"1\">1 Star</option>  
+  							 <option value=\"2\">2 Star</option>  
+  							 <option value=\"3\">3 Star</option>  
+  							 <option value=\"4\">4 Star</option>
+  							 <option value=\"5\">5 Star</option>   
+							 </select></td>";
+
+                    echo "<td><input type=\"submit\" value=\"Rate!\"></form></td>";
+
+                    $id = $results[$i]['id'];
+
+                    echo "</tr>";
+
+                    if ($results[$i + 1] == null) {
+                        break;
+                    }
                 }
                 ?>
-			</tbody>
-        </table>     
+            </tbody>
+        </table>
+    </div>
 </body>

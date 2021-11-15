@@ -15,34 +15,35 @@ Movie Rad
 </head>
 
 <header>
-        <div class="text-center pt-3">
-            <h1>Admin Page</h1>
-        </div>
-        
-        <nav class="d-lg-block sidebar bg-white px-5">
+<nav class="navbar navbar-expand-sm bg-light">
+            <a href="index.php" class="navbar-brand">
+                <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-link">
+                    <a href="topten.php">Top 10</a>
+                </li>
+                <li class="nav-link">
+                    <a href="searchmovie.php">Movie Search</a>
+                </li>
 
-            <ul class="c-sidebar-nav">
-                <h2>
-                    <li class="c-sidebar-nav-item">
-                        <a href="topten.php">Top 10</a>
-                    </li>
-                    <li class="c-sidebar-nav-item">
-                        <a href="index.php">Movie Search</a>
-                    </li>
-                	<li class="c-sidebar-nav-item">
-                        <a href="membership.php">Membership Page</a>
-                    </li>
-                	<li class="c-sidebar-nav-item">
-                        <a href="admin.php">Admin</a>
-                    </li>
-                </h2>
+                <li class="nav-link">
+                    <a href="membership.php">Membership Page</a>
+                </li>
+                <li class="nav-link">
+                    <a href="adminlogin.php">Admin</a>
+                </li>
             </ul>
-
         </nav>
-    </header>
+
+    <div class="text-center pt-3">
+        <h1>Admin Page</h1>
+    </div>
+
+</header>
 
 <body>
-<div class="px-5 pt-5">
+    <div class="px-5 pt-5">
         <?php
         require "connect.php";
 
@@ -76,8 +77,8 @@ Movie Rad
             }
             //run the query
         }
-        ?> 
-	
-		<?php include "clientlist.php"; ?>
-</div>
+        ?>
+
+        <?php include "clientlist.php"; ?>
+    </div>
 </body>

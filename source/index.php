@@ -17,117 +17,55 @@ Activity 3
 
 <body>
 
+<nav class="navbar navbar-expand-sm bg-light">
+            <a href="index.php" class="navbar-brand">
+                <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-link">
+                    <a href="topten.php">Top 10</a>
+                </li>
+                <li class="nav-link">
+                    <a href="searchmovie.php">Movie Search</a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="membership.php">Membership Page</a>
+                </li>
+                <li class="nav-link">
+                    <a href="adminlogin.php">Admin</a>
+                </li>
+            </ul>
+        </nav>
 
 
 
     <header>
         <div class="text-center pt-3">
-            <h1>Movie Search</h1>
+            <img src="citelogo.jpg" alt="Cite Logo">
         </div>
-        
-        <nav class="d-lg-block sidebar bg-white px-5">
-
-            <ul class="c-sidebar-nav">
-                <h2>
-                    <li class="c-sidebar-nav-item">
-                        <a href="topten.php">Top 10</a>
-                    </li>
-                    <li class="c-sidebar-nav-item">
-                        <a href="index.php">Movie Search</a>
-                    </li>
-                	<li class="c-sidebar-nav-item">
-                        <a href="membership.php">Membership Page</a>
-                    </li>
-                	<li class="c-sidebar-nav-item">
-                        <a href="admin.php">Admin</a>
-                    </li>
-                </h2>
-            </ul>
-
-        </nav>
+        <div class="text-center pt-3">
+            <h1>Our Movies</h1>
+        </div>
     </header>
 
-
-    
-
-        
-
-        
-        
-        <form action="searchscr.php" class="px-5 pt-5" method="POST">
-            <div class="col-xs-3 form-group">
-                <h4>Search movies by name:</h4>
+    <body>
+        <div class="row pt-5 px-5">
+            <div class="col-lg-6">
+                <h2>What we do</h2>
                 
-                <input type="text" name="textsearchterm" id="textsearchterm" class="form-control"/>
+                Cite Managed Services boasts the best stock of digital movie rentals this side of the web. Here you can view the movies we have in stock.
             </div>
-
-
-            <div class="col-xs-3 form-group">
-                <h4>Search movies by rating:</h4>
-
-                <select name="ratings" id="ratings">
-                    <option value=""></option>
-                    <?php
-                    require("connect.php");
-                    $statement = $conn->prepare("SELECT DISTINCT `Rating` FROM `Movies_DVDs`");
-                    $statement->execute();
-                    $output = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-                    for ($i = 0; true; $i++) {
-                        echo "<option value=\"" . $output[$i]['Rating'] . "\">" . $output[$i]['Rating'] . "</option>";
-                        if ($output[$i + 1] == null) {
-                            break;
-                        }
-                    }
-                    ?>
-                </select>
+            <div class="col-lg-6">
+                <h2>Example Title</h2>
+                This is our website homepage sample. A comment to users about the website or a description of your business overall goes here.
             </div>
-
-
-
-            <div class="col-xs-3 form-group">
-                <h4>Search movies by year:</h4>
-                <input type="radio" id="Higher_than" name="greater_less_year" value="Higher_than" checked="checked">
-                <label for="Higher_than">After</label><br>
-                <input type="radio" id="Lower_than" name="greater_less_year" value="Lower_than">
-                <label for="Lower_than">Before</label><br>
-                <input type="radio" id="At_year" name="greater_less_year" value="At_year">
-                <label for="At_year">Exactly</label><br>
-                <input type="number" max="2001" min="1930" name="yearsearchterm" id="yearsearchterm" class="form-control"/>
-
-            </div>
-
-
-            <div class="col-xs-3 form-group">
-                <h4>Search movies by genre:</h4>
-                <select name="genres" id="genres">
-                    <option value=""></option>
-                    <?php
-                    require("connect.php");
-
-                    $statement = $conn->prepare("SELECT DISTINCT `Genre` FROM `Movies_DVDs`");
-                    $statement->execute();
-                    $output = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-                    for ($i = 0; true; $i++) {
-                        echo "<option value=\"" . $output[$i]['Genre'] . "\">" . $output[$i]['Genre'] . "</option>";
-                        if ($output[$i + 1] == null) {
-                            break;
-                        }
-                    }
-                    ?>
-                </select>
-                
-            </div>
-            <div class="container row mx-1 mt-1 pl-4">
-            <input type="submit" value="Search">
         </div>
-        </form>
-            
-            
-        
 
-        
+
+    </body>
+
+
+
+
 </body>
