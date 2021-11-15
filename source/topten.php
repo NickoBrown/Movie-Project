@@ -12,6 +12,12 @@
             <li class="c-sidebar-nav-item">
                 <a href="index.php">Movie Search</a>
             </li>
+        	<li class="c-sidebar-nav-item">
+                <a href="membership.php">Membership Page</a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                 <a href="admin.php">Admin</a>
+            </li>
         </h2>
     </ul>
 </nav>
