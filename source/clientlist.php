@@ -22,7 +22,6 @@ $smt = $conn->prepare($sql);
 $smt->execute();
 //run the query
 
-$row = $smt->fetch(PDO::FETCH_ASSOC);
 while ($row = $smt->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
 

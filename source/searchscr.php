@@ -73,20 +73,20 @@ Movie Rad
 
 
                 if ($yearoperator == "Higher_than") {
-                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` > $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                    $results = $conn->query("SELECT ID, Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` > $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
                 if ($yearoperator == "Lower_than") {
-                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` < $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                    $results = $conn->query("SELECT ID, Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` < $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
                 if ($yearoperator == "At_year") {
-                    $results = $conn->query("SELECT Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` = $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
+                    $results = $conn->query("SELECT ID, Title, Genre, ReleaseYear, Rating FROM `Movies_DVDs` WHERE (`Title` LIKE \"%$title%\" AND `Genre` LIKE \"%$genre%\" AND `Rating` LIKE \"%$rating%\" AND (`ReleaseYear` = $releaseyear))")->fetchAll(PDO::FETCH_ASSOC);
                 }
 
 
 
                 for ($i = 0; true; $i++) {
                     echo "<tr>";
-
+					$id = $results[$i]['ID'];
                     echo "<td>" . $results[$i]['Title'] . "</td>";
 
                     echo "<td>" . $results[$i]['Genre'] . "</td>";
@@ -94,8 +94,8 @@ Movie Rad
                     echo "<td>" . $results[$i]['Rating'] . "</td>";
 
                     echo "<td>" . $results[$i]['ReleaseYear'] . "</td>";
-
-                    echo "<td> <form action=\"index.php\" method=\"POST\">
+                
+                    echo "<td> <form action=\"ratingscr.php\" method=\"POST\">
                         	 <select name=\"score\" id=\"score\">  
   							 <option value=\"select\">Select</option> 
   							 <option value=\"1\">1 Star</option>  
@@ -103,11 +103,12 @@ Movie Rad
   							 <option value=\"3\">3 Star</option>  
   							 <option value=\"4\">4 Star</option>
   							 <option value=\"5\">5 Star</option>   
-							 </select></td>";
-
+							 </select></td>
+							 <input type=\"hidden\" id=\"movieID\" name=\"movieID\" value=\"".$id."\">";
+						
                     echo "<td><input type=\"submit\" value=\"Rate!\"></form></td>";
 
-                    $id = $results[$i]['id'];
+                    
 
                     echo "</tr>";
 

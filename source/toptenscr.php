@@ -5,12 +5,12 @@
 
 require("connect.php");
 
-$result = $conn->query("SELECT `Title`, `Score` FROM `Movies_DVDs` WHERE `Score` ORDER BY `Score` ASC;")->fetchAll(PDO::FETCH_ASSOC);
+$result = $conn->query("SELECT `Title`, `AverageRating` FROM `Movies_DVDs` WHERE `AverageRating` ORDER BY `AverageRating` ASC;")->fetchAll(PDO::FETCH_ASSOC);
 
             $data = array();
 
             for($i = 0; $i < 10; $i++){
-                $data += array($result[$i]['Title'] => $result[$i]['Score']);
+                $data += array($result[$i]['Title'] => $result[$i]['AverageRating']);
             }
             
         
@@ -45,10 +45,10 @@ $fontSize = 15;
 $labelMargin = 8;
 
 // Max value on y-axis
-$yMaxValue = 100;
+$yMaxValue = 5;
 
 // Distance between grid lines on y-axis
-$yLabelSpan = 40;
+$yLabelSpan = 1;
 
 // Init image
 $chart = imagecreate($imageWidth, $imageHeight);

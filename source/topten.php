@@ -36,5 +36,5 @@
     <div class="container">
         <img src="toptenscr.php" class="img-fluid" alt="Graph of top 10 movies">
     </div>
-
+	
 </body>
