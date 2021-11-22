@@ -31,8 +31,11 @@ Movie Rad
                     <a href="membership.php">Membership Page</a>
                 </li>
                 <li class="nav-link">
-                    <a href="adminlogin.php">Admin</a>
+                    <a href="employeelogin.php">Employee Login</a>
                 </li>
+            	<li class="nav-link">
+                	<a href="adminlogin.php">Admin Login</a>
+           		</li>
             </ul>
         </nav>
 
@@ -47,9 +50,8 @@ Movie Rad
         <?php
         require "connect.php";
 
-        $email = $_POST["email"];
-        $newsletter = $_POST["newsletterBox"];
-        $newsflash = $_POST["newsflashBox"];
+        $email = $_POST["username"];
+        $newsletter = $_POST["password"];
 
         //initialise an empty string so we can add to it if needed
         $error_msg = "";
@@ -58,27 +60,27 @@ Movie Rad
         if (!empty($email)) {
             $email = filter_var($email, FILTER_SANITIZE_STRING);
         } else {
-            $error_msg .= "<p>Email is required</p>";
+            $error_msg .= "<p>Username is required.</p>";
         }
 
         //ClientId	FirstName	Email	Newsletter	Newsflash
         if (!empty($error_msg)) {
             echo "<p>Error: </p>" . $error_msg;
         } else {
-            $sql = "UPDATE Client 
+            $sql = "UPDATE Employees 
                         SET 
-                        Newsletter = '$newsletter', 
-                        Newsflash = '$newsflash'
-                        WHERE Email = '$email'";
+                        username = '$username', 
+                        password = '$password'
+                        WHERE username = '$username';";
             $smt = $conn->prepare($sql);
 
             if ($smt->execute()) {
-                echo "<p>Client have been updated!</p>";
+                echo "<p>Employee have been updated!</p>";
             }
             //run the query
         }
         ?>
 
-        <?php include "clientlist.php"; ?>
+        <?php include "adminlist.php"; ?>
     </div>
 </body>

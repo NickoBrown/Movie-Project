@@ -17,7 +17,7 @@ Membership page
 
 <body>
     <header>
-    <nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm bg-light">
             <a href="index.php" class="navbar-brand">
                 <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
             </a>
@@ -33,8 +33,11 @@ Membership page
                     <a href="membership.php">Membership Page</a>
                 </li>
                 <li class="nav-link">
-                    <a href="adminlogin.php">Admin</a>
+                    <a href="employeelogin.php">Employee Login</a>
                 </li>
+            	<li class="nav-link">
+                	<a href="adminlogin.php">Admin Login</a>
+           		</li>
             </ul>
         </nav>
         <div class="text-center pt-3">
@@ -49,20 +52,11 @@ Membership page
     <form action="adminscr.php" class="px-5 pt-5" method="POST">
 
         <div class="col-xs-3 form-group">
-            <h4>Email:</h4>
+            <h4>Username:</h4>
+            <input type="text" name="username" id="username" class="form-control" />
 
-            <input type="text" name="email" id="email" class="form-control" />
-        </div>
-
-        <div class="col-xs-3 form-group">
-            <h4>Sign up for newsletter:</h4>
-            <input type="checkbox" name="newsletterBox" value="true">
-
-        </div>
-
-        <div class="col-xs-3 form-group">
-            <h4>Sign up for newsflash:</h4>
-            <input type="checkbox" name="newsflashBox" value="true">
+            <h4>Password:</h4>
+            <input type="text" name="username" id="username" class="form-control" />
         </div>
 
         <div class="container row mx-1 mt-1 pl-4">
@@ -71,6 +65,6 @@ Membership page
 
     </form>
     <div class="px-5 pt-5">
-        <?php include "clientlist.php"; ?>
+        <?php include "employeelist.php"; ?>
     </div>
 </body>

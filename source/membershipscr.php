@@ -33,8 +33,11 @@ Movie Rad
                     <a href="membership.php">Membership Page</a>
                 </li>
                 <li class="nav-link">
-                    <a href="adminlogin.php">Admin</a>
+                    <a href="employeelogin.php">Employee Login</a>
                 </li>
+            	<li class="nav-link">
+                	<a href="adminlogin.php">Admin Login</a>
+           		</li>
             </ul>
         </nav>
 
