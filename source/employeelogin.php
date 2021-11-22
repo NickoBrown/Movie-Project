@@ -1,7 +1,7 @@
 <!--
-Nicholas Brown
-30032159
-Activity 3
+Nicholas Brown,Duy Pham, Minh vu
+30032159,30038701
+Membership page
 -->
 <html lang="en">
 
@@ -10,13 +10,13 @@ Activity 3
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Movie Search Page</title>
+    <title>Employee Login Page</title>
 </head>
 
 
 
 <body>
-
+    <header>
 <nav class="navbar navbar-expand-sm bg-light">
             <a href="index.php" class="navbar-brand">
                 <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
@@ -41,34 +41,27 @@ Activity 3
             </ul>
         </nav>
 
-
-
-    <header>
         <div class="text-center pt-3">
-            <img src="citelogo.jpg" alt="Cite Logo">
+            <h1>Employee Login Page</h1>
         </div>
-        <div class="text-center pt-3">
-            <h1>Our Movies</h1>
-        </div>
+
     </header>
 
-    <body>
-        <div class="row pt-5 px-5">
-            <div class="col-lg-6">
-                <h2>What we do</h2>
-                
-                Cite Managed Services boasts the best stock of digital movie rentals this side of the web. Here you can view the movies we have in stock.
+    <form action="login.php" class="px-5 pt-5" method="POST">
+
+        <div class="col-xs-3 form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" class="form-control" />
+            <label for="password">Password:</label>
+            <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" name="password" id="password" class="form-control" />
+            <div class="pt-1">
+                <span title="Your password must have:&#13;&#10; At least one lower case letter.&#13;&#10; At least one upper case letter.&#13;&#10; At least one number.&#13;&#10; At least one symbol.&#13;&#10; At least 8 characters in length.">
+                    <img src="info-circle.svg" alt="Password Requirements">
+                </span>
             </div>
-            <div class="col-lg-6">
-                <h2>Example Title</h2>
-                This is our website homepage sample. A comment to users about the website or a description of your business overall goes here.
+            <div class="pt-3">
+                <input type="submit" value="Login">
             </div>
         </div>
-
-
-    </body>
-
-
-
-
+    </form>
 </body>

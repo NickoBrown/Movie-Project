@@ -7,7 +7,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm bg-light">
             <a href="index.php" class="navbar-brand">
                 <img src="movie-camera.svg" class="img-responsive" alt="Cite Logo" width="50" height="50">
             </a>
@@ -23,8 +23,11 @@
                     <a href="membership.php">Membership Page</a>
                 </li>
                 <li class="nav-link">
-                    <a href="adminlogin.php">Admin</a>
+                    <a href="employeelogin.php">Employee Login</a>
                 </li>
+            	<li class="nav-link">
+                	<a href="adminlogin.php">Admin Login</a>
+           		</li>
             </ul>
         </nav>
 
