@@ -45,6 +45,31 @@ Activity 3
             <h1>Rating</h1>
         </div>
     </header>
+
+	<div class="px-5 pt-5 text-center">
+    
+    <?php
+    //Select ID,AverageRating From Movies_DVDs WHERE AverageRating ORDER BY AverageRating Desc LIMIT 10
+    require ("connect.php");
+    $sql = "Select ID,AverageRating From Movies_DVDs WHERE AverageRating ORDER BY AverageRating Desc LIMIT 10";
+    $smt = $conn->prepare($sql);
+    $smt->execute();
+    $result = $smt->fetchAll();
+    
+    for($x = 0; $x < 10; $x++)
+    {
+    	$sql = "INSERT INTO analytics(movieID, AverageRating)
+        		VALUES(?,?)";
+    	$stmt = $conn->prepare($sql);
+    	$stmt->bindValue(1, $result[$x]['ID'], PDO::PARAM_INT);
+    	$stmt->bindValue(2, $result[$x]['AverageRating'], PDO::PARAM_INT);
+		$stmt->execute();
+    }
+    
+    //get id and score
+	$id = $_POST["movieID"];
+	$score = $_POST["score"];
+=======
 	<div class="px-5 pt-5">
     
     <?php
@@ -73,6 +98,12 @@ Activity 3
             AverageRating = '$average'
             WHERE ID = '$id'";
 	$smt = $conn->prepare($sql);
+	
+    if ($smt->execute()){
+    	echo "<h3>Score have been submitted! </h3>";
+    }
+	
+=======
 
 	if ($smt->execute())
 	{
