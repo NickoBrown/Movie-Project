@@ -45,6 +45,7 @@ Activity 3
             <h1>Rating</h1>
         </div>
     </header>
+
 	<div class="px-5 pt-5 text-center">
     
     <?php
@@ -68,6 +69,13 @@ Activity 3
     //get id and score
 	$id = $_POST["movieID"];
 	$score = $_POST["score"];
+=======
+	<div class="px-5 pt-5">
+    
+    <?php
+	$id = $_POST["movieID"];
+	$score = $_POST["score"];
+
     if ($score == "select")
     {
     	echo "<p>Score is empty!</p>";
@@ -95,6 +103,12 @@ Activity 3
     	echo "<h3>Score have been submitted! </h3>";
     }
 	
+=======
+
+	if ($smt->execute())
+	{
+    	echo "<p>Score have been submitted!</p>";
+	}
     }
 ?>
     </div>
