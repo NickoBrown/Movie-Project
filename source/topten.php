@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<meta http-equiv="refresh" content="10">
 </head>
 
 
@@ -36,5 +37,5 @@
     <div class="container">
         <img src="toptenscr.php" class="img-fluid" alt="Graph of top 10 movies">
     </div>
-
+	
 </body>
