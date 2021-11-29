@@ -45,14 +45,14 @@ Activity 3
 
     <header>
         <div class="text-center pt-3">
-            <img src="citelogo.jpg" alt="Cite Logo">
+            <img src="citelogo.jpg" alt="Acme Logo">
         </div>
         <div class="text-center pt-3">
             <h1>Our Movies</h1>
         </div>
     </header>
 
-    <body>
+
         <div class="row pt-5 px-5">
             <div class="col-lg-6">
                 <h2>What we do</h2>
@@ -65,10 +65,4 @@ Activity 3
             </div>
         </div>
 
-
-    </body>
-
-
-
-
-</body>
+  </body>
