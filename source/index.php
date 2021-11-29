@@ -57,7 +57,7 @@ Activity 3
             <div class="col-lg-6">
                 <h2>What we do</h2>
                 
-                Cite Managed Services boasts the best stock of digital movie rentals this side of the web. Here you can view the movies we have in stock.
+                Acme Entertainment boasts the best stock of digital movie rentals this side of the web. Here you can view the movies we have in stock.
             </div>
             <div class="col-lg-6">
                 <h2>Example Title</h2>
@@ -65,4 +65,4 @@ Activity 3
             </div>
         </div>
 
-</body>
+  </body>
