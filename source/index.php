@@ -10,7 +10,7 @@ Activity 3
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Movie Search Page</title>
+    <title>Acme Movies</title>
 </head>
 
 
@@ -45,14 +45,14 @@ Activity 3
 
     <header>
         <div class="text-center pt-3">
-            <img src="citelogo.jpg" alt="Cite Logo">
+            <img src="citelogo.jpg" alt="Acme Logo">
         </div>
         <div class="text-center pt-3">
             <h1>Our Movies</h1>
         </div>
     </header>
 
-    <body>
+
         <div class="row pt-5 px-5">
             <div class="col-lg-6">
                 <h2>What we do</h2>
@@ -64,11 +64,5 @@ Activity 3
                 This is our website homepage sample. A comment to users about the website or a description of your business overall goes here.
             </div>
         </div>
-
-
-    </body>
-
-
-
 
 </body>
